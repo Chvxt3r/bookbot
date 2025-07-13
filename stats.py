@@ -7,7 +7,12 @@ def wordcount(book_text):
 
 def charstats(book_text):
     cs = {}
-    lowered = book_text.lower()
-    return(lowered)
+    for c in book_text:
+        lowered = c.lower()
+        if lowered in cs:
+            cs[lowered] += 1
+        else:
+            cs[lowered] = 1
+    return(cs)
 
     

@@ -1,19 +1,17 @@
 from stats import *
  
-def get_book_text(file_path):
-    with open(file_path) as f:
-        book_contents = f.read()
-    return(book_contents)
-
 def main():
-    book_text = get_book_text("books/frankenstein.txt")
-    print(book_text)
+    book_path = "books/frankenstein.txt"
+    text = get_book_text(book_path)
+    num_words = wordcount(text)
+    chars_dict = charstats(text)
+    print(f"{num_words} words found in the documents")
+    print(chars_dict)
 
-def main2():
-    book_text = get_book_text("books/frankenstein.txt")
-    wc = wordcount(book_text)
-    cs = charstats(book_text)
-    print(f"{wc} words found in the document")
-    print(f"{cs}")
-    
-main2()
+def get_book_text(path):
+    with open(path) as f:
+        return f.read()
+
+main()
+
+
